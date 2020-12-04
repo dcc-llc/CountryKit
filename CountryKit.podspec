@@ -17,7 +17,5 @@ Pod::Spec.new do |s|
 
   s.source_files =  'Sources/*.swift', 
                     'Support/*.{h,m}'
-  
-  s.resources = 'Sources/Flags.xcassets'
 
 end
