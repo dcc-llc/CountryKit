@@ -1,18 +1,5 @@
 import Foundation
 
-#if os(iOS) || os(tvOS) || os(watchOS)
-  import UIKit
-  /// **CountryKit**
-  ///
-  /// Alias for UIImage.
-  public typealias Image = UIKit.UIImage
-#elseif os(macOS)
-  import Cocoa
-  /// **CountryKit**
-  ///
-  /// Alias for NSImage.
-  public typealias Image = AppKit.NSImage
-#endif
 
 /// **CountryKit**
 ///
@@ -39,24 +26,6 @@ open class Country: Codable {
   ///
   /// Country code.
   public let countryCode: Int?
-
-  #if !os(watchOS)
-
-  /// **CountryKit**
-  ///
-  /// Returns the country flag.
-  public lazy var flagImage: Image? = {
-    let image: Image?
-
-    #if os(iOS) || os(tvOS)
-      image = Image(named: iso.lowercased(), in: bundle, compatibleWith: nil)
-    #elseif os(macOS)
-      image = bundle.image(forResource: iso.lowercased())
-    #endif
-    return image
-  }()
-
-  #endif
 
   /// **CountryKit**
   ///
